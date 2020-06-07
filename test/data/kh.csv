@@ -1,0 +1,4 @@
+könyvelés dátuma	tranzakció azonosító 	típus	könyvelési számla	könyvelési számla elnevezése	partner számla	partner elnevezése	összeg	összeg devizaneme	közlemény	tranzakciót indító tényleges fizető fél neve 	a tényleges fizető azonosítójának típusa 	tranzakciót indító tényleges fizető fél azonosítója	tényleges kedvezményezett neve 	tényleges kedvezményezett azonosítójának típusa	tényleges kedvezményezett azonosítója 	partnerek közti egyedi azonosító 	szervezetazonosító	átutalás jogcíme 	átutalás jogcím kategóriája 	partner másodlagos számlaazonosító 
+2020.04.30	000000	Vásárlás NNR belf. kereskedőnél	2148780624	TEST  ACCOUNT		TEST PAYEE	-800	HUF	TEST NOTES
+2020.04.30	NOTPROVIDED	TEST PAYEE	3771874088	TEST  ACCOUNT			16	HUF	TEST NOTES
+2020.04.30	099900427H036318	TEST PAYEE	3771874088	TEST  ACCOUNT			-32	HUF	TEST NOTES

@@ -1,0 +1,6 @@
+*.db*
+__pycache__
+*.pyc
+db/*
+orig/*
+config/assets.yml
