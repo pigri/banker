@@ -1,4 +1,5 @@
 Completed Date;Reference;Paid Out (EUR);Paid In (EUR);Exchange Out;Exchange In; Balance (EUR);Exchange Rate;Category
 30 Apr;TEST PAYEE;0.63;;USD 0.69;;148.86;FX-rate €1 = US$1.0971;TEST NOTES
-30 Apr;TEST PAYEE;;1.40;;;149.49; ;TEST NOTES
+30 Apr;TEST INCOME;;1.40;;;149.49; ;TEST NOTES
 30 Apr;TEST PAYEE;3.00;;USD 3.29;;148.09;FX-rate €1 = US$1.0971;TEST NOTES
+30 Apr;TEST INCOME;;63.96;;;107.96; ;TEST NOTES

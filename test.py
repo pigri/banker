@@ -74,6 +74,18 @@ class MyTestCase(unittest.TestCase):
         for row in data:
             test_data_result.update({'date': '2020-04-30'})
             test_data_result.update({'payee': 'TEST PAYEE'})
+            if row['transaction']['payee'] == 'TEST INCOME':
+                test_data_result.update({'payee': 'TEST INCOME'})
+                if float(row['transaction']['amount']) >= 0:
+                    pass
+                else:
+                    raise(ValueError)
+            else:
+                if float(row['transaction']['amount']) < 0:
+                    pass
+                else:
+                    print(row['transaction']['amount'])
+                    raise(ValueError)
             test_data_result.update(
                 {'amount': row['transaction']['amount']})
             test_data_result.update(

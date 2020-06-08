@@ -4,4 +4,4 @@ __pycache__
 db/*
 orig/*
 config/assets.yml
-.DS_Store
+**/.DS_Store

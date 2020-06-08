@@ -34,7 +34,9 @@ class DataTransform(object):
                 if paid_out == '':
                     amount = paid_in.replace(',', '')
                 else:
-                    amount = paid_out.replace(',', '')
+                    paid_out.replace(',', '')
+                    amount = '-' + paid_out.strip()
+
                 notes = row[csv_column_config['notes']]
                 payee = row[csv_column_config['payee']]
                 date = str(Helper().dateConverter(
