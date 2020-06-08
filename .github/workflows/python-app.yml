@@ -16,11 +16,17 @@ jobs:
           uses: actions/setup-python@v2
           with:
             python-version: 3.8
-        - name: Run test
-          uses: dschep/install-pipenv-action@v1
+        - name: Install pipenv
+          run: pip install pipenv
+        - name: Use pipenv
+          run: pipenv shell
+        - name: Depedency install
           run: pipenv install -d
-          run: echo "::set-env name=PYTHONPATH::$GITHUB_WORKSPACE/lib"1
+        - name: Set PYTHONPATH
+          run: echo "::set-env name=PYTHONPATH::$GITHUB_WORKSPACE/lib"
+        - name: Get PYTHONPATH
           run: echo 'PYTHONPATH is' $PYTHONPATH
+        - name: Test run
           run: pipenv run test
           env:
             ENV: test
