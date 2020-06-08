@@ -20,6 +20,12 @@ jobs:
           uses: VaultVulp/action-pipenv@v2.0.1
           with:
             command: install -d
+        - name: Set env
+          uses: VaultVulp/action-pipenv@v2.0.1
+          run: echo "::set-env name=PYTHONPATH::$GITHUB_WORKSPACE/lib"
+        - name: Get env
+          uses: VaultVulp/action-pipenv@v2.0.1
+          run: echo 'PYTHONPATH is' $PYTHONPATH
         - name: Test
           uses: VaultVulp/action-pipenv@v2.0.1
           with:
