@@ -1,8 +1,8 @@
 
 
-from datatransform import DataTransform
+from datatransform import dataTransform
 from config import Config
-from helper import Helper
+from helper import *
 from assets import Assets
 from csv_load import Csv
 import unittest
@@ -31,7 +31,7 @@ class MyTestCase(unittest.TestCase):
         }
         for bank in config:
             date_format = config[bank]['parsing_settings']['date_format']
-            date_converting = str(Helper().dateConverter(
+            date_converting = str(dateConverter(
                 date_format, bank_dates[bank]))
             self.assertEqual(date_converting, '2020-01-01')
 
@@ -46,7 +46,7 @@ class MyTestCase(unittest.TestCase):
         date_format = config['parsing_settings']['date_format']
         raw_data = Csv(csv_read_type=csv_read_type, file_path=file_path,
                        delimiter=delimiter).reader()
-        data = DataTransform().transform(bank_name=bank, raw_data=raw_data,
+        data = dataTransform().transform(bank_name=bank, raw_data=raw_data,
                                          csv_column_config=csv_column_config, date_format=date_format)
         for row in data:
             test_data_result.update({'date': '2020-04-30'})
@@ -69,7 +69,7 @@ class MyTestCase(unittest.TestCase):
         date_format = config['parsing_settings']['date_format']
         raw_data = Csv(csv_read_type=csv_read_type, file_path=file_path,
                        delimiter=delimiter).reader()
-        data = DataTransform().transform(bank_name=bank, raw_data=raw_data,
+        data = dataTransform().transform(bank_name=bank, raw_data=raw_data,
                                          csv_column_config=csv_column_config, date_format=date_format)
         for row in data:
             test_data_result.update({'date': '2020-04-30'})
@@ -104,8 +104,9 @@ class MyTestCase(unittest.TestCase):
         date_format = config['parsing_settings']['date_format']
         raw_data = Csv(csv_read_type=csv_read_type, file_path=file_path,
                        delimiter=delimiter).reader()
-        data = DataTransform().transform(bank_name=bank, raw_data=raw_data,
-                                         csv_column_config=csv_column_config, date_format=date_format)
+        data = dataTransform().transform(bank_name=bank, raw_data=raw_data,
+                                         csv_column_config=csv_column_config,
+                                         date_format=date_format)
         for row in data:
             test_data_result.update({'date': '2020-04-30'})
             test_data_result.update({'payee': 'TEST PAYEE'})
@@ -127,8 +128,9 @@ class MyTestCase(unittest.TestCase):
         date_format = config['parsing_settings']['date_format']
         raw_data = Csv(csv_read_type=csv_read_type, file_path=file_path,
                        delimiter=delimiter).reader()
-        data = DataTransform().transform(bank_name=bank, raw_data=raw_data,
-                                         csv_column_config=csv_column_config, date_format=date_format)
+        data = dataTransform().transform(bank_name=bank, raw_data=raw_data,
+                                         csv_column_config=csv_column_config,
+                                         date_format=date_format)
         for row in data:
             test_data_result.update({'date': '2020-04-30'})
             test_data_result.update({'payee': 'TEST PAYEE'})
@@ -154,8 +156,9 @@ class MyTestCase(unittest.TestCase):
         date_format = config['parsing_settings']['date_format']
         raw_data = Csv(csv_read_type=csv_read_type, file_path=file_path,
                        delimiter=delimiter).reader()
-        data = DataTransform().transform(bank_name=bank, raw_data=raw_data,
-                                         csv_column_config=csv_column_config, date_format=date_format)
+        data = dataTransform().transform(bank_name=bank, raw_data=raw_data,
+                                         csv_column_config=csv_column_config,
+                                         date_format=date_format)
         for row in data:
             test_data_result.update({'date': '2020-04-30'})
             test_data_result.update({'payee': 'TEST PAYEE'})

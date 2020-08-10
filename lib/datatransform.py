@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 
 import re
-from helper import Helper
+from helper import dateConverter
 from assets import Assets
 
 
-class DataTransform(object):
+class dataTransform(object):
     def transform(self, **kwargs):
-        class khBank(DataTransform):
+        class khBank(dataTransform):
             def data_transform(self, row):
                 currency = row[csv_column_config['currency']].lower()
                 notes = row[csv_column_config['notes']]
@@ -16,7 +16,7 @@ class DataTransform(object):
 
                 if payee == '':
                     payee = row[csv_column_config['payee'][0]]
-                date = str(Helper().dateConverter(
+                date = str(dateConverter(
                     date_format, row[csv_column_config['date']]))
                 return {'date': date, 'payee': payee,
                         'amount': amount, 'currency': currency, 'notes': notes}
@@ -24,7 +24,7 @@ class DataTransform(object):
             def asset_id(self, row, asset_ids):
                 return asset_ids[row[csv_column_config['asset_id']]]
 
-        class revolutBank(DataTransform):
+        class revolutBank(dataTransform):
             def data_transform(self, row):
                 currency = self.__currency(row)
                 paid_out = row[csv_column_config['amount'][0] %
@@ -34,12 +34,12 @@ class DataTransform(object):
                 if paid_out == '':
                     amount = paid_in.replace(',', '')
                 else:
-                    paid_out.replace(',', '')
-                    amount = '-' + paid_out.strip()
+                    expense = '-' + paid_out.strip()
+                    amount = expense.replace(',', '')
 
                 notes = row[csv_column_config['notes']]
                 payee = row[csv_column_config['payee']]
-                date = str(Helper().dateConverter(
+                date = str(dateConverter(
                     date_format, row[csv_column_config['date']]))
                 return {'date': date, 'payee': payee,
                         'amount': amount, 'currency': currency, 'notes': notes}
@@ -56,7 +56,7 @@ class DataTransform(object):
                             ')', '').replace('(', '').lower())
                 return fields[0]
 
-        class otpBank(DataTransform):
+        class otpBank(dataTransform):
             def data_transform(self, row):
                 currency = csv_column_config['currency']
                 if currency != 'huf':
@@ -64,7 +64,7 @@ class DataTransform(object):
                 notes = row[csv_column_config['notes']]
                 amount = row[csv_column_config['amount']]
                 payee = row[csv_column_config['payee']]
-                date = str(Helper().dateConverter(
+                date = str(dateConverter(
                     date_format, row[csv_column_config['date']]))
                 if payee == '':
                     payee = notes
@@ -74,14 +74,14 @@ class DataTransform(object):
             def asset_id(self, row, asset_ids):
                 return asset_ids[row[csv_column_config['asset_id']]]
 
-        class n26Bank(DataTransform):
+        class n26Bank(dataTransform):
             def data_transform(self, row):
                 currency = self.__currency(row)
                 amount = row[csv_column_config['amount'] %
                              (currency.upper())]
                 notes = row[csv_column_config['notes']]
                 payee = row[csv_column_config['payee']]
-                date = str(Helper().dateConverter(
+                date = str(dateConverter(
                     date_format, row[csv_column_config['date']]))
                 return {'date': date, 'payee': payee,
                         'amount': amount, 'currency': currency, 'notes': notes}
@@ -105,7 +105,7 @@ class DataTransform(object):
         csv_column_config = kwargs['csv_column_config']
         date_format = str(kwargs['date_format'])
         asset_ids = Assets(bank_name=bank_name).getAssetID()
-        for i in DataTransform.__subclasses__():
+        for i in dataTransform.__subclasses__():
             bank_class = bank_name + "Bank"
             if str(i).split('.')[4].replace("'>", '') == bank_class:
                 function = bank_name + "Bank"

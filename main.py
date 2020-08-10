@@ -1,23 +1,18 @@
 # -*- coding: utf-8 -*-
 
 
-
 import json
 import calendar
 import click
 
 from lunchmoney import Lunchmoney
-from helper import Helper
+from helper import genUuid
 from database import Transaction
 from csv_load import Csv
 from config import Config
-from datatransform import DataTransform
+from datatransform import dataTransform
 
 
-# '''select * from transactions WHERE json_extract(data, '$.date') between "2020-%s-01" and "2020-%s-%s" AND json_extract(data, '$.currency') = "%s";''' % (month, month, end_of_day, currency))
-# query = Transaction.select().where(Transaction.lunchmoney_id.is_null(True))
-# query = Transaction.select().where(
-#     Transaction.data['date'].between('2020-04-01', '2020-04-30'))
 @click.group(chain=True)
 def cli():
     pass
@@ -25,7 +20,9 @@ def cli():
 
 @cli.command('data-import')
 @click.option('--bank-type',
-              type=click.Choice(['kh', 'revolut', 'n26', 'otp_debit', 'otp_credit'], case_sensitive=True))
+              type=click.Choice(['kh', 'revolut',
+                                 'n26', 'otp_debit',
+                                 'otp_credit'], case_sensitive=True))
 @click.option('--file-path', help='CSV file path', type=click.Path(exists=True))
 def data_import(bank_type, file_path):
     bank = str(bank_type)
@@ -37,12 +34,12 @@ def data_import(bank_type, file_path):
     file_path = str(file_path)
     raw_data = Csv(csv_read_type=csv_read_type, file_path=file_path,
                    delimiter=delimiter).reader()
-    data = DataTransform().transform(bank_name=bank, raw_data=raw_data,
+    data = dataTransform().transform(bank_name=bank, raw_data=raw_data,
                                      csv_column_config=csv_column_config, date_format=date_format)
     for row in data:
-        random_id = Helper().genUUID()
-        Transaction.create(
-            id=random_id, data=row['transaction'], asset_id=row['asset_id'])
+        random_id = genUuid()
+        print(Transaction.create(
+            id=random_id, data=row['transaction'], asset_id=row['asset_id']))
 
 
 @cli.command('lunchmoney-id')
@@ -71,7 +68,8 @@ def data_export(token):
         data.update({'asset_id': row.asset_id})
         data.update({'external_id': row.id})
         result.append(data)
-    Lunchmoney(token=str(token)).insertTransactions(result)
+    response = Lunchmoney(token=str(token)).insertTransactions(result)
+    print(response)
 
 
 if __name__ == '__main__':
