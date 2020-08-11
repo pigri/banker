@@ -116,7 +116,10 @@ class dataTransform(object):
             transaction = eval(function + "().data_transform(%s)" % (row))
             asset_id = eval(function + "().asset_id(%s,%s)" %
                             (row, asset_ids))
-            main['transaction'].update(transaction)
-            main.update({'asset_id': asset_id})
-            data.append(main)
+            if asset_id == 'skip':
+                pass
+            else:
+                main['transaction'].update(transaction)
+                main.update({'asset_id': asset_id})
+                data.append(main)
         return data
