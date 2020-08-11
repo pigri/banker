@@ -1,0 +1,10 @@
+*.db*
+__pycache__
+*.pyc
+db/*
+orig/*
+config/assets.yml
+**/.DS_Store
+*.md
+test/*
+config/*
