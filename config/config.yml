@@ -1,5 +1,5 @@
-kh: 
-    parsing_settings: 
+kh:
+    parsing_settings:
         date_format: "%Y.%m.%d"
         delimiter: "\t"
         csv_read_type: "dict_reader"
@@ -12,51 +12,51 @@ kh:
         currency: "összeg devizaneme"
         amount: "összeg"
         asset_id: "könyvelési számla"
-otp_debit: 
-    parsing_settings: 
-        date_format: "%Y%m%d" 
-        delimiter: ";" 
-        csv_read_type: "line_reader" 
-    csv_column_config: 
+otp_debit:
+    parsing_settings:
+        date_format: "%Y%m%d"
+        delimiter: ";"
+        csv_read_type: "line_reader"
+    csv_column_config:
         payee: 8
-        notes: 12 
+        notes: 12
         date: 5
-        currency: 3 
+        currency: 3
         amount: 2
         asset_id: 0
-otp_credit: 
-    parsing_settings: 
-        date_format: "%Y%m%d" 
-        delimiter: ";" 
-        csv_read_type: "line_reader" 
-    csv_column_config: 
+otp_credit:
+    parsing_settings:
+        date_format: "%Y%m%d"
+        delimiter: ";"
+        csv_read_type: "line_reader"
+    csv_column_config:
         payee: 10
-        notes: 9 
-        date: 4 
-        currency: "huf" 
+        notes: 9
+        date: 4
+        currency: "huf"
         amount: 2
         asset_id: 0
-n26: 
-    parsing_settings: 
-        delimiter: "," 
-        date_format: "%Y-%m-%d" 
-        csv_read_type: "dict_reader" 
-    csv_column_config: 
-        payee: "Payee" 
-        notes: "Category" 
-        date: "Date" 
-        amount: "Amount (%s)" 
+n26:
+    parsing_settings:
+        delimiter: ","
+        date_format: "%Y-%m-%d"
+        csv_read_type: "dict_reader"
+    csv_column_config:
+        payee: "Payee"
+        notes: "Category"
+        date: "Date"
+        amount: "Amount (%s)"
         asset_id: "currency"
-revolut: 
-    parsing_settings: 
-        date_format: "%d %b"
+revolut:
+    parsing_settings:
+        date_format: "%d %b %Y"
         delimiter: ";"
         csv_read_type: "dict_reader"
-    csv_column_config: 
-        payee: "Reference" 
-        notes: "Category" 
-        date: "Completed Date" 
-        amount: 
-            - "Paid Out (%s)" 
-            - "Paid In (%s)" 
+    csv_column_config:
+        payee: "Reference"
+        notes: "Category"
+        date: "Completed Date"
+        amount:
+            - "Paid Out (%s)"
+            - "Paid In (%s)"
         asset_id: "currency"
