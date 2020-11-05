@@ -24,7 +24,7 @@ class MyTestCase(unittest.TestCase):
         config = Config(template_type='all').template()
         bank_dates = {
             'kh': '2020.01.01',
-            'revolut': '1 Jan',
+            'revolut': '1 Jan 2020',
             'otp_debit': '20200101',
             'otp_credit': '20200101',
             'n26': '2020-01-01'
