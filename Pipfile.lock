@@ -47,10 +47,10 @@
         },
         "peewee": {
             "hashes": [
-                "sha256:1269a9736865512bd4056298003aab190957afe07d2616cf22eaf56cb6398369"
+                "sha256:4a795dd30fc0e68f8da66bf03ec54e669a24ab7ce35c2c12a2e77fea7bcc21ce"
             ],
             "index": "pypi",
-            "version": "==3.13.3"
+            "version": "==3.14.1"
         },
         "pyyaml": {
             "hashes": [
