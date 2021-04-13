@@ -47,10 +47,10 @@
         },
         "peewee": {
             "hashes": [
-                "sha256:4a795dd30fc0e68f8da66bf03ec54e669a24ab7ce35c2c12a2e77fea7bcc21ce"
+                "sha256:9e356b327c2eaec6dd42ecea6f4ddded025793dba906a3d065a0452e726c51a2"
             ],
             "index": "pypi",
-            "version": "==3.14.1"
+            "version": "==3.14.4"
         },
         "pyyaml": {
             "hashes": [
@@ -100,17 +100,16 @@
                 "sha256:2f4da4594db7e1e110a944bb1b551fdf4e6c136ad42e4234131391e21eb5b0df",
                 "sha256:e7b021f7241115872f92f43c6508082facffbd1c048e3c6e2bb9c2a157e28937"
             ],
-            "index": "pypi",
             "version": "==1.26.4"
         }
     },
     "develop": {
         "astroid": {
             "hashes": [
-                "sha256:6b0ed1af831570e500e2437625979eaa3b36011f66ddfc4ce930128610258ca9",
-                "sha256:cd80bf957c49765dce6d92c43163ff9d2abc43132ce64d4b1b47717c6d2522df"
+                "sha256:ad63b8552c70939568966811a088ef0bc880f99a24a00834abd0e3681b514f91",
+                "sha256:bea3f32799fbb8581f58431c12591bc20ce11cbc90ad82e2ea5717d94f2080d5"
             ],
-            "version": "==2.5.2"
+            "version": "==2.5.3"
         },
         "autopep8": {
             "hashes": [
