@@ -106,18 +106,18 @@
     "develop": {
         "astroid": {
             "hashes": [
-                "sha256:ad63b8552c70939568966811a088ef0bc880f99a24a00834abd0e3681b514f91",
-                "sha256:bea3f32799fbb8581f58431c12591bc20ce11cbc90ad82e2ea5717d94f2080d5"
+                "sha256:4db03ab5fc3340cf619dbc25e42c2cc3755154ce6009469766d7143d1fc2ee4e",
+                "sha256:8a398dfce302c13f14bab13e2b14fe385d32b73f4e4853b9bdfb64598baa1975"
             ],
-            "version": "==2.5.3"
+            "version": "==2.5.6"
         },
         "autopep8": {
             "hashes": [
-                "sha256:5454e6e9a3d02aae38f866eec0d9a7de4ab9f93c10a273fb0340f3d6d09f7514",
-                "sha256:f01b06a6808bc31698db907761e5890eb2295e287af53f6693b39ce55454034a"
+                "sha256:276ced7e9e3cb22e5d7c14748384a5cf5d9002257c0ed50c0e075b68011bb6d0",
+                "sha256:aa213493c30dcdac99537249ee65b24af0b2c29f2e83cd8b3f68760441ed0db9"
             ],
             "index": "pypi",
-            "version": "==1.5.6"
+            "version": "==1.5.7"
         },
         "isort": {
             "hashes": [
