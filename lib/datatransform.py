@@ -31,11 +31,18 @@ class dataTransform(object):
                                (currency.upper())]
                 paid_in = row[csv_column_config['amount'][1] %
                               (currency.upper())]
-                if paid_out == '':
-                    amount = paid_in.replace(',', '')
+                if currency == 'huf':
+                    if paid_out == '':
+                        amount = paid_in.replace('.', '').replace(',','.').strip()
+                    else:
+                        expense = '-' + paid_out.strip()
+                        amount = expense.replace('.', '').replace(',','.').strip()
                 else:
-                    expense = '-' + paid_out.strip()
-                    amount = expense.replace(',', '')
+                    if paid_out == '':
+                        amount = paid_in.replace(',', '.').strip()
+                    else:
+                        expense = '-' + paid_out.strip()
+                        amount = expense.replace(',', '.').strip()
 
                 notes = row[csv_column_config['notes']]
                 payee = row[csv_column_config['payee']]
