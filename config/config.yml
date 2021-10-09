@@ -49,7 +49,7 @@ n26:
         asset_id: "currency"
 revolut:
     parsing_settings:
-        date_format: "%d %b %Y"
+        date_format: "%d. %b %Y"
         delimiter: ";"
         csv_read_type: "dict_reader"
     csv_column_config:
