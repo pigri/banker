@@ -7,4 +7,6 @@ config/assets.yml
 **/.DS_Store
 *.md
 test/*
-config/*
+config/assets_test.yml
+Statements
+

@@ -24,7 +24,7 @@ class MyTestCase(unittest.TestCase):
         config = Config(template_type='all').template()
         bank_dates = {
             'kh': '2020.01.01',
-            'revolut': '1. Jan 2020',
+            'revolut': '2020-01-01 00:00:00',
             'otp_debit': '20200101',
             'otp_credit': '20200101',
             'n26': '2020-01-01'
@@ -74,18 +74,6 @@ class MyTestCase(unittest.TestCase):
         for row in data:
             test_data_result.update({'date': '2020-04-30'})
             test_data_result.update({'payee': 'TEST PAYEE'})
-            if row['transaction']['payee'] == 'TEST INCOME':
-                test_data_result.update({'payee': 'TEST INCOME'})
-                if float(row['transaction']['amount']) >= 0:
-                    pass
-                else:
-                    raise(ValueError)
-            else:
-                if float(row['transaction']['amount']) < 0:
-                    pass
-                else:
-                    print(row['transaction']['amount'])
-                    raise(ValueError)
             test_data_result.update(
                 {'amount': row['transaction']['amount']})
             test_data_result.update(

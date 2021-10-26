@@ -49,14 +49,13 @@ n26:
         asset_id: "currency"
 revolut:
     parsing_settings:
-        date_format: "%d. %b %Y"
-        delimiter: ";"
+        date_format: "%Y-%m-%d %H:%M:%S"
+        delimiter: ","
         csv_read_type: "dict_reader"
     csv_column_config:
-        payee: "Reference"
-        notes: "Category"
+        payee: "Description"
+        notes: "Type"
         date: "Completed Date"
-        amount:
-            - "Paid Out (%s)"
-            - "Paid In (%s)"
-        asset_id: "currency"
+        amount: "Amount"
+        currency: "Currency"
+        asset_id: "Currency"

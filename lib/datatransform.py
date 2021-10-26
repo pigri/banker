@@ -26,42 +26,18 @@ class dataTransform(object):
 
         class revolutBank(dataTransform):
             def data_transform(self, row):
-                currency = self.__currency(row)
-                paid_out = row[csv_column_config['amount'][0] %
-                               (currency.upper())]
-                paid_in = row[csv_column_config['amount'][1] %
-                              (currency.upper())]
-                if currency == 'huf':
-                    if paid_out == '':
-                        amount = paid_in.replace('.', '').replace(',','.').strip()
-                    else:
-                        expense = '-' + paid_out.strip()
-                        amount = expense.replace('.', '').replace(',','.').strip()
-                else:
-                    if paid_out == '':
-                        amount = paid_in.replace(',', '.').strip()
-                    else:
-                        expense = '-' + paid_out.strip()
-                        amount = expense.replace(',', '.').strip()
-
+                currency = row[csv_column_config['currency']].lower()
                 notes = row[csv_column_config['notes']]
                 payee = row[csv_column_config['payee']]
-                date = str(dateConverter(
-                    date_format, row[csv_column_config['date']]))
-                return {'date': date, 'payee': payee,
-                        'amount': amount, 'currency': currency, 'notes': notes}
+                amount = row[csv_column_config['amount']]
+                if row["State"].lower() == 'completed':
+                    date = str(dateConverter(
+                        date_format, row[csv_column_config['date']]))
+                    return {'date': date, 'payee': payee,
+                            'amount': amount, 'currency': currency, 'notes': notes}
 
             def asset_id(self, row, asset_ids):
-                currency = self.__currency(row)
-                return asset_ids[currency]
-
-            def __currency(self, row):
-                fields = []
-                for key in row.keys():
-                    if re.match('^Paid Out(.*)', key) != None:
-                        fields.append(key.split(' ')[2].replace(
-                            ')', '').replace('(', '').lower())
-                return fields[0]
+                return asset_ids[row[csv_column_config['asset_id']].lower()]
 
         class otpBank(dataTransform):
             def data_transform(self, row):
