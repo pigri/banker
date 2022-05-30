@@ -49,10 +49,10 @@
         },
         "peewee": {
             "hashes": [
-                "sha256:01bd7f734defb08d7a3346a0c0ca7011bc8d0d685934ec0e001b3371d522ec53"
+                "sha256:23271422b332c82d30c92597dee905ee831b56c6d99c33e05901e6891c75fe15"
             ],
             "index": "pypi",
-            "version": "==3.14.8"
+            "version": "==3.14.10"
         },
         "pyyaml": {
             "hashes": [
