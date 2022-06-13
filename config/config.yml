@@ -43,7 +43,7 @@ n26:
         csv_read_type: "dict_reader"
     csv_column_config:
         payee: "Payee"
-        notes: "Category"
+        notes: "Payment reference"
         date: "Date"
         amount: "Amount (%s)"
         asset_id: "currency"
