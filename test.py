@@ -25,8 +25,7 @@ class MyTestCase(unittest.TestCase):
         bank_dates = {
             'kh': '2020.01.01',
             'revolut': '2020-01-01 00:00:00',
-            'otp_debit': '20200101',
-            'otp_credit': '20200101',
+            'otp': '2020-01-01',
             'n26': '2020-01-01'
         }
         for bank in config:
@@ -105,38 +104,10 @@ class MyTestCase(unittest.TestCase):
             test_data_result.update({'notes': 'TEST NOTES'})
             self.assertDictEqual(row['transaction'], test_data_result)
 
-    def test_DataTransform_otp_debit(self):
+    def test_DataTransform_otp(self):
         test_data_result = {}
-        bank = 'otp_debit'
-        file_path = 'test/data/otp_debit.csv'
-        config = Config(template_type=bank).template()
-        csv_read_type = config['parsing_settings']['csv_read_type']
-        csv_column_config = config['csv_column_config']
-        delimiter = config['parsing_settings']['delimiter']
-        date_format = config['parsing_settings']['date_format']
-        raw_data = Csv(csv_read_type=csv_read_type, file_path=file_path,
-                       delimiter=delimiter).reader()
-        data = dataTransform().transform(bank_name=bank, raw_data=raw_data,
-                                         csv_column_config=csv_column_config,
-                                         date_format=date_format)
-        for row in data:
-            test_data_result.update({'date': '2020-04-30'})
-            test_data_result.update({'payee': 'TEST PAYEE'})
-            if row['transaction']['payee'] == 'TEST PAYEE NOTES':
-                test_data_result.update({'payee': 'TEST PAYEE NOTES'})
-            test_data_result.update(
-                {'amount': row['transaction']['amount']})
-            test_data_result.update(
-                {'currency': row['transaction']['currency']})
-            test_data_result.update({'notes': 'TEST NOTES'})
-            if row['transaction']['payee'] == 'TEST PAYEE NOTES':
-                test_data_result.update({'notes': 'TEST PAYEE NOTES'})
-            self.assertDictEqual(row['transaction'], test_data_result)
-
-    def test_DataTransform_otp_credit(self):
-        test_data_result = {}
-        bank = 'otp_credit'
-        file_path = 'test/data/otp_credit.csv'
+        bank = 'otp'
+        file_path = 'test/data/otp.csv'
         config = Config(template_type=bank).template()
         csv_read_type = config['parsing_settings']['csv_read_type']
         csv_column_config = config['csv_column_config']

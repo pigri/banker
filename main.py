@@ -23,8 +23,7 @@ def cli():
 @cli.command('data-import')
 @click.option('--bank-type',
               type=click.Choice(['kh', 'revolut',
-                                 'n26', 'otp_debit',
-                                 'otp_credit'], case_sensitive=True))
+                                 'n26', 'otp'], case_sensitive=True))
 @click.option('--file-path', help='CSV file path', type=click.Path(exists=True))
 def data_import(bank_type, file_path):
     bank = str(bank_type)

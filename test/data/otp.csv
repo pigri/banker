@@ -1,0 +1,6 @@
+Tranzakció dátuma;Könyvelés dátuma;Típus;Bejövő/Kimenő;Partner neve;Partner számlaszáma/azonosítója;Költési kategória;Közlemény;Számla név;Számla szám;Összeg;Pénznem
+2020-04-30 14:48:19;2020-04-30;TEST TYPE;Bejövő;TEST PAYEE;123456;Nem kategorizált;TEST NOTES;TEST NOTES;1782100073;761670;HUF
+2020-04-30 14:49:12;2020-04-30;TEST TYPE;Kimenő;TEST PAYEE;3894175921;Nem kategorizált;TEST NOTES;TEST NOTES;1782100073;-759259;HUF
+2020-04-30 15:04:21;2020-04-30;TEST TYPE;Bejövő;TEST PAYEE;1782100073;Nem kategorizált;TEST NOTES;Credit card;3894175921;759259;HUF
+2020-04-30 14:14:00;2020-04-30;TEST TYPE;Kimenő;TEST PAYEE;;Számlák, rezsi;TEST NOTES;Bázis számla;1782100073;-172;HUF
+2020-04-30 20:14:57;2020-04-30;TEST TYPE;Kimenő;TEST PAYEE;;Egyéb;TEST NOTES;Credit card;3894175921;-5365;HUF

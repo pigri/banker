@@ -12,30 +12,18 @@ kh:
         currency: "összeg devizaneme"
         amount: "összeg"
         asset_id: "könyvelési számla"
-otp_debit:
+otp:
     parsing_settings:
-        date_format: "%Y%m%d"
+        date_format: "%Y-%m-%d"
         delimiter: ";"
-        csv_read_type: "line_reader"
+        csv_read_type: "dict_reader"
     csv_column_config:
-        payee: 8
-        notes: 12
-        date: 5
-        currency: 3
-        amount: 2
-        asset_id: 0
-otp_credit:
-    parsing_settings:
-        date_format: "%Y%m%d"
-        delimiter: ";"
-        csv_read_type: "line_reader"
-    csv_column_config:
-        payee: 10
-        notes: 9
-        date: 4
-        currency: "huf"
-        amount: 2
-        asset_id: 0
+        payee: "Partner neve"
+        notes: "Közlemény"
+        date: "Könyvelés dátuma"
+        currency: "Pénznem"
+        amount: "Összeg"
+        asset_id: "Számla szám"
 n26:
     parsing_settings:
         delimiter: ","
